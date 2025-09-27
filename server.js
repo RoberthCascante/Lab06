@@ -54,7 +54,9 @@ app.use("/static", express.static("static"));
 
 app.use(session({
   cookie: { httpOnly: true },
-  secret: SECRET
+  secret: SECRET,
+  resave: false,
+  saveUninitialized: true
 }));
 
 // App routes
