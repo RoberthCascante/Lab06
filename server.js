@@ -1,5 +1,8 @@
 "use strict";
 
+// Load environment variables
+require('dotenv').config();
+
 // Imports
 const express = require("express");
 const session = require("express-session");
@@ -11,21 +14,21 @@ var path = require('path');
 let app = express();
 
 // Globals
-const OKTA_ISSUER_URI = "https://dev-00zwbhirmz1xfar7.us.auth0.com"
-const OKTA_CLIENT_ID = "sFL1dmywOZ50rnT7AREK4fAmWssfV0Qy";
-const OKTA_CLIENT_SECRET = "qkrqrVblaC7187bL40s1TLo3yTyMfinGhToasDapdtXhvgLsOdKOgv5YSM6q8gej";
-const REDIRECT_URI = "http://localhost:3000/dashboard";
+const OKTA_ISSUER_URI = process.env.OKTA_ISSUER_URI;
+const OKTA_CLIENT_ID = process.env.OKTA_CLIENT_ID;
+const OKTA_CLIENT_SECRET = process.env.OKTA_CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 const PORT = process.env.PORT || "3000";
-const SECRET = "hjsadfghjakshdfg87sd8f76s8d7f68s7f632342ug44gg423636346f"; // Dejar el secret así como está.
+const SECRET = process.env.SECRET;
 
 //  Esto se los dará Okta.
 const config = {
   authRequired: false,
   auth0Logout: true,
   secret: SECRET,
-  baseURL: 'http://localhost:3000',
-  clientID: 'sFL1dmywOZ50rnT7AREK4fAmWssfV0Qy',
-  issuerBaseURL: 'https://dev-00zwbhirmz1xfar7.us.auth0.com'
+  baseURL: process.env.BASE_URL,
+  clientID: OKTA_CLIENT_ID,
+  issuerBaseURL: OKTA_ISSUER_URI
 };
 
 let oidc = new ExpressOIDC({
