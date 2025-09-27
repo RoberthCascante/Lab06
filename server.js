@@ -36,7 +36,7 @@ let oidc = new ExpressOIDC({
   client_id: OKTA_CLIENT_ID,
   client_secret: OKTA_CLIENT_SECRET,
   redirect_uri: REDIRECT_URI,
-  routes: { callback: { defaultRedirect: "http://localhost:3000/dashboard" } },
+  routes: { callback: { defaultRedirect: "https://lab06-iota.vercel.app/dashboard" } },
   scope: 'openid profile'
 });
 
