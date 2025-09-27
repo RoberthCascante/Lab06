@@ -14,7 +14,7 @@
     "swig": "^1.4.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "UNA",
   "license": "MIT"
