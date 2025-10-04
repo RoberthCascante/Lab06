@@ -36,6 +36,7 @@ let oidc = new ExpressOIDC({
   client_id: OKTA_CLIENT_ID,
   client_secret: OKTA_CLIENT_SECRET,
   redirect_uri: REDIRECT_URI,
+   baseURL: process.env.APP_BASE_URL,/// CAMBIO REALIZADO AQUI
   routes: { callback: { defaultRedirect: "https://lab06-3gpn.onrender.com/dashboard" } },
   scope: 'openid profile'
 });
