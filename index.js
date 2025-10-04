@@ -18,7 +18,7 @@ const OKTA_ISSUER_URI = process.env.OKTA_ISSUER_URI;
 const OKTA_CLIENT_ID = process.env.OKTA_CLIENT_ID;
 const OKTA_CLIENT_SECRET = process.env.OKTA_CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
-const PORT = process.env.PORT || "3000";
+const PORT = process.env.PORT;
 const SECRET = process.env.SECRET;
 
 //  Esto se los dará Okta.
@@ -36,7 +36,7 @@ let oidc = new ExpressOIDC({
   client_id: OKTA_CLIENT_ID,
   client_secret: OKTA_CLIENT_SECRET,
   redirect_uri: REDIRECT_URI,
-   baseURL: process.env.BASE_URL,/// CAMBIO REALIZADO AQUI
+  appBaseUrl: process.env.BASE_URL,/// CAMBIO REALIZADO AQUI
   routes: { callback: { defaultRedirect: "https://lab06-3gpn.onrender.com/dashboard" } },
   scope: 'openid profile'
 });
